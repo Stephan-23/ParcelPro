@@ -1,39 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ParcelPro – Delivery Estimator</title>
-    <link rel="stylesheet" href="styles/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ParcelPro – Smart Delivery Estimator</title>
+  <link rel="stylesheet" href="styles/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>ParcelPro</h1>
-        <h2>Smart Parcel Pricing & Route Estimator</h2>
-        <p>Calculate your delivery cost in seconds</p>
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="nav-left">
+      <h1 class="logo">ParcelPro</h1>
+    </div>
+    <div class="nav-center">
+      <button class="nav-button" onclick="openForm()">Estimate</button>
+    </div>
+    <div class="nav-right">
+      <button class="mode-toggle">Dark Mode</button>
+    </div>
+  </header>
 
-        <form id="delivery-form">
-            <label for="weight">Weight (kg):</label>
-            <input type="number" id="weight" name="weight" placeholder="e.g. 1.5" required>
-
-            <label for="from">From (Pickup location):</label>
-            <input type="text" id="from" name="from" placeholder="e.g. Johannesburg" required>
-
-            <label for="to">To (Destination):</label>
-            <input type="text" id="to" name="to" placeholder="e.g. Durban" required>
-
-            <button type="submit">Calculate Cost</button>
-        </form>
-
-        <div id="result" class="hidden">
-            <h2>Estimated Delivery Details</h2>
-            <p><strong>Price:</strong> <span id="price"></span></p>
-            <p><strong>Distance:</strong> <span id="distance"></span></p>
-            <p><strong>Best Route:</strong> <span id="route"></span></p>
-            <p><strong>Estimated Time:</strong> <span id="time"></span></p>
-        </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-message">
+      <h1>Welcome to ParcelPro</h1>
+      <h3>Smart Parcel Pricing & Route Estimator</h3>
     </div>
 
-    <script src="scripts/app.js"></script>
+    <!-- Intro Cards -->
+    <div class="card-container">
+      <div class="info-card">
+        <p>ParcelPro is your go-to tool for calculating delivery costs, estimating travel time, and identifying the best routes — quickly and easily.</p>
+      </div>
+      <div class="info-card">
+        <p>Are you a driver confused about parcel rates, delivery times, or best routes? ParcelPro helps you plan all your deliveries efficiently.</p>
+      </div>
+      <div class="image-grid">
+        <img src="link" alt="Parcel box" />
+        <img src="link" alt="Driver with parcel car" />
+        <img src="link" alt="Delivery in transit" />
+        <img src="link" alt="Happy customer receiving parcel" />
+      </div>
+    </div>
+
+    <!-- Confusion Message -->
+    <div class="confusion-box">
+      <img src="link" alt="Confused person unsure about parcel delivery" />
+      <p>
+        Not sure how much your parcel will cost? <br />
+        Don’t worry, ParcelPro gives you instant delivery estimates.
+      </p>
+    </div>
+
+    <!-- Estimate Prompt -->
+    <div class="estimate-box">
+      <h3>Ready to Estimate Your Parcel Delivery?</h3>
+      <button onclick="openForm()">Get Estimate</button>
+    </div>
+  </section>
+
+  <!-- Estimation Form -->
+  <section class="popup-form hidden" id="estimateForm">
+    <div class="form-card">
+      <h2>Parcel Estimation</h2>
+      <form id="delivery-form">
+        <label for="weight">Weight (kg):</label>
+        <input type="number" id="weight" name="weight" placeholder="e.g. 1.5" required />
+
+        <label for="from">From (Pickup location):</label>
+        <input type="text" id="from" name="from" placeholder="e.g. Johannesburg" required />
+
+        <label for="to">To (Destination):</label>
+        <input type="text" id="to" name="to" placeholder="e.g. Durban" required />
+
+        <button type="submit">Calculate Cost</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Result Pop-up -->
+  <section class="popup-result hidden" id="resultPopup">
+    <div class="result-card">
+      <h2>Estimated Delivery Details</h2>
+      <p><strong>Price:</strong> <span id="price"></span></p>
+      <p><strong>Distance:</strong> <span id="distance"></span></p>
+      <p><strong>Best Route:</strong> <span id="route"></span></p>
+      <p><strong>Estimated Time:</strong> <span id="time"></span></p>
+      <button onclick="closeResult()">OK</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 ParcelPro. All rights reserved.</p>
+  </footer>
+
+  <script src="scripts/app.js"></script>
 </body>
 </html>
